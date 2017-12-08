@@ -3,9 +3,8 @@ package com.roundarch.codetest.part2;
 import java.io.Serializable;
 
 public class DataModel implements Serializable {
-    /**
-     * 
-     */
+
+
     private static final long serialVersionUID = -702176057888480130L;
 
     private String text1;
