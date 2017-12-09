@@ -1,8 +1,11 @@
 package com.roundarch.codetest.part2;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class DataModel implements Serializable {
+public class DataModel implements Parcelable {
 
 
     private static final long serialVersionUID = -702176057888480130L;
@@ -10,6 +13,26 @@ public class DataModel implements Serializable {
     private String text1;
     private String text2;
     private double text3;
+
+    public DataModel() {}
+
+    protected DataModel(Parcel in) {
+        text1 = in.readString();
+        text2 = in.readString();
+        text3 = in.readDouble();
+    }
+
+    public static final Creator<DataModel> CREATOR = new Creator<DataModel>() {
+        @Override
+        public DataModel createFromParcel(Parcel in) {
+            return new DataModel(in);
+        }
+
+        @Override
+        public DataModel[] newArray(int size) {
+            return new DataModel[size];
+        }
+    };
 
     public String getText1() {
         return text1;
@@ -35,4 +58,15 @@ public class DataModel implements Serializable {
         this.text3 = text3;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(text1);
+        dest.writeString(text2);
+        dest.writeDouble(text3);
+    }
 }

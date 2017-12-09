@@ -1,5 +1,6 @@
 package com.roundarch.codetest.part2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.roundarch.codetest.R;
 
 public class Part2Fragment extends Fragment {
@@ -23,7 +26,6 @@ public class Part2Fragment extends Fragment {
             onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_part2, null);
 
-        // TODO -
         view.findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,24 +49,46 @@ public class Part2Fragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(EXTRA_MODEL, mModel);
+        outState.putParcelable(EXTRA_MODEL, mModel);
 
         super.onSaveInstanceState(outState);
     }
 
     public void onClick_edit() {
-        // TODO - package up the data model and provide it to the new EditActivity as it is being created
-        Intent intent = new Intent(this.getActivity(), EditActivity.class);
+        // TODONE - package up the data model and provide it to the new EditActivity as it is being created
+        setModelData(mModel);
 
-        // TODO - this probably isn't the best way to start the EditActivty, try to fix it
-        startActivity(intent);
+        Intent intent = new Intent(this.getActivity(), EditActivity.class);
+        intent.putExtra("datamodel_parcel", mModel);
+
+        // TODONE - this probably isn't the best way to start the EditActivty, try to fix it
+        startActivityForResult(intent, 1);
     }
 
-    // TODO - provide a method to obtain the data model when it is returned from the EditActivity
+    // TODONE - provide a method to obtain the data model when it is returned from the EditActivity
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                Toast.makeText(getContext(), "Edit successful", Toast.LENGTH_SHORT).show();
+                mModel = data.getParcelableExtra("datamodel_parcel");
+                setTextViews();
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Toast.makeText(getContext(), "Edit failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     private void setTextViews() {
         textView1.setText(mModel.getText1());
         textView2.setText(mModel.getText2());
         textView3.setText(String.valueOf(mModel.getText3()));
+    }
+
+    private void setModelData(DataModel model) {
+        model.setText1(textView1.getText().toString());
+        model.setText2(textView2.getText().toString());
+        model.setText3(Double.valueOf(textView3.getText().toString()));
     }
 }
