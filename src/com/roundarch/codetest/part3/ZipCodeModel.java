@@ -1,46 +1,67 @@
 package com.roundarch.codetest.part3;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Samuel on 09/12/2017.
  */
 
 public class ZipCodeModel {
 
-    @SerializedName("Longitude")
-    @Expose
-    private String longitude;
     @SerializedName("Zipcode")
     @Expose
-    private String zipcode;
+    private int zipcode;
+
     @SerializedName("ZipClass")
     @Expose
     private String zipClass;
-    @SerializedName("County")
-    @Expose
-    private String county;
-    @SerializedName("City")
-    @Expose
-    private String city;
+
     @SerializedName("State")
     @Expose
     private String state;
+
+    @SerializedName("City")
+    @Expose
+    private String city;
+
+    @SerializedName("County")
+    @Expose
+    private String county;
+
     @SerializedName("Latitude")
     @Expose
-    private String latitude;
+    private Double latitude;
 
-    public String getLongitude() {
-        return longitude;
+    @SerializedName("Longitude")
+    @Expose
+    private Double longitude;
+
+
+    public ZipCodeModel() {
     }
 
-    public void setLongitude(String longitude) {
+    public ZipCodeModel(int zipcode,
+                        String zipClass,
+                        String state,
+                        String city,
+                        String county,
+                        Double latitude,
+                        Double longitude) {
+        this.zipcode = zipcode;
+        this.zipClass = zipClass;
+        this.state = state;
+        this.city = city;
+        this.county = county;
+        this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getZipcode() {
+    public int getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -52,12 +73,12 @@ public class ZipCodeModel {
         this.zipClass = zipClass;
     }
 
-    public String getCounty() {
-        return county;
+    public String getState() {
+        return state;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getCity() {
@@ -68,20 +89,27 @@ public class ZipCodeModel {
         this.city = city;
     }
 
-    public String getState() {
-        return state;
+    public String getCounty() {
+        return county;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setCounty(String county) {
+        this.county = county;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 }

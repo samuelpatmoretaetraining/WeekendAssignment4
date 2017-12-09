@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.roundarch.codetest.R;
 
+import java.util.ArrayList;
+
 public class Part3Fragment extends Fragment {
 
     @Override
@@ -36,6 +38,15 @@ public class Part3Fragment extends Fragment {
 
         // TODO - this is also a good place to leverage the Service's IBinder interface to tell it you want
         // TODO - to refresh data
+    }
+
+    private ArrayList<ZipCodeModel> getDummyValues() {
+        ArrayList<ZipCodeModel> dummyList = new ArrayList<>();
+        ZipCodeModel item1 = new ZipCodeModel(07001, "STANDARD", "NJ", "AVENEL", "MIDDLESEX", +40.582845, -074.275240);
+        ZipCodeModel item2 = new ZipCodeModel(07002, "STANDARD", "NY", "PLACE", "NOSEX", +38.958471, -075.097438);
+        dummyList.add(item1);
+        dummyList.add(item2);
+        return dummyList;
     }
 
     @Override
