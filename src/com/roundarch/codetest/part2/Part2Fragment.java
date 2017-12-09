@@ -73,6 +73,8 @@ public class Part2Fragment extends Fragment {
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
                 Toast.makeText(getContext(), "Edit successful", Toast.LENGTH_SHORT).show();
+                mModel = data.getParcelableExtra("datamodel_parcel");
+                setTextViews();
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 Toast.makeText(getContext(), "Edit failed", Toast.LENGTH_SHORT).show();
             }
