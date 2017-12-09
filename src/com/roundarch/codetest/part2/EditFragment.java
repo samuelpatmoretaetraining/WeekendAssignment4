@@ -12,20 +12,25 @@ import android.widget.EditText;
 import com.roundarch.codetest.ProgressDialogFragment;
 import com.roundarch.codetest.R;
 
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 public class EditFragment extends Fragment {
     public static final int RESULT_SAVE = 1;
     public static final String EXTRA_MODEL = "extra_model";
 
     private static final String TAG = "EditFragment";
 
-    private DataModel mModel; // TODO - needs to be provided from original Activity/Fragment
+    private DataModel mModel; // TODONE - needs to be provided from original Activity/Fragment
     private EditText edit1;
     private EditText edit2;
     private EditText edit3;
 
-    // TODO - This fragment should allow you to edit the fields of DataModel
-    // TODO - Then when you click the save button, it should get the DataModel back to the prior activity
-    // TODO - so it's up to date
+    // TODONE - This fragment should allow you to edit the fields of DataModel
+    // TODONE - Then when you click the save button, it should get the DataModel back to the prior activity
+    // TODONE - so it's up to date
     @Override
     public View
             onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,11 +58,20 @@ public class EditFragment extends Fragment {
         // TODONE - you need to implement swapText
         swapText(model);
 
-        // TODO - the BlackBox simulates a slow operation, so you will need to update
-        // TODO - this code to prevent it from blocking the main thread
-        double newValue = BlackBox.doMagic(model.getText3());
-        model.setText3(newValue);
+        // TODONE - the BlackBox simulates a slow operation, so you will need to update
+        // TODONE - this code to prevent it from blocking the main thread
+        Observable.just(BlackBox.doMagic(model.getText3()))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(value -> {
+                    model.setText3(value);
+                    editComplete();
+                });
+//        double newValue = BlackBox.doMagic(model.getText3();
+//        model.setText3(newValue);
+    }
 
+    private void editComplete() {
         // TODONE - once the model has been updated, you need to find a good way to
         // TODONE - to provide it back to Part2Fragment in the MainActivity
         EditActivity activity = (EditActivity) getActivity();

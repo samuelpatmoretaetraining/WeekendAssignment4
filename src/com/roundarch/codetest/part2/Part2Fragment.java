@@ -26,7 +26,6 @@ public class Part2Fragment extends Fragment {
             onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_part2, null);
 
-        // TODO -
         view.findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +65,7 @@ public class Part2Fragment extends Fragment {
         startActivityForResult(intent, 1);
     }
 
-    // TODO - provide a method to obtain the data model when it is returned from the EditActivity
+    // TODONE - provide a method to obtain the data model when it is returned from the EditActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
