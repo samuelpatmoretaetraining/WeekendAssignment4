@@ -20,8 +20,7 @@ public class EditActivity extends FragmentActivity {
 
         setContentView(R.layout.activity_edit);
 
-        // TODO - you will need to obtain the model object provided to this activity and provide it to the EditFragment
-
+        // TODONE - you will need to obtain the model object provided to this activity and provide it to the EditFragment
         mEditFragment = (EditFragment) getSupportFragmentManager().findFragmentById(R.id.edit_fragment);
         mModel = (DataModel) getIntent().getParcelableExtra("datamodel_parcel");
         if (mModel != null) {
@@ -30,7 +29,5 @@ public class EditActivity extends FragmentActivity {
             Log.wtf(TAG, "No DataModel supplied to EditActivity!");
             finish();
         }
-
-
     }
 }

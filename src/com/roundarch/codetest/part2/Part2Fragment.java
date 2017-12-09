@@ -64,6 +64,11 @@ public class Part2Fragment extends Fragment {
     }
 
     // TODO - provide a method to obtain the data model when it is returned from the EditActivity
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
 
     private void setTextViews() {
         textView1.setText(mModel.getText1());

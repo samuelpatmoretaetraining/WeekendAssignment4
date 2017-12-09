@@ -3,6 +3,7 @@ package com.roundarch.codetest.part2;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +15,8 @@ import com.roundarch.codetest.R;
 public class EditFragment extends Fragment {
     public static final int RESULT_SAVE = 1;
     public static final String EXTRA_MODEL = "extra_model";
+
+    private static final String TAG = "EditFragment";
 
     private DataModel mModel; // TODO - needs to be provided from original Activity/Fragment
     private EditText edit1;
@@ -88,6 +91,14 @@ public class EditFragment extends Fragment {
     }
 
     private void refreshViewsFromModel() {
+        if (mModel == null) {
+            Log.wtf(TAG, "DataModel is null! EditActivity closing.");
+            getActivity().finish();
+        }
+
+        edit1.setText(mModel.getText1());
+        edit2.setText(mModel.getText2());
+        edit3.setText(String.valueOf(mModel.getText3()));
         // TODO - update our views based on the model's state
     }
 }
