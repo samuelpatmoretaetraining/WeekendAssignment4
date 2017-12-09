@@ -1,5 +1,7 @@
 package com.roundarch.codetest.part2;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,5 +31,18 @@ public class EditActivity extends FragmentActivity {
             Log.wtf(TAG, "No DataModel supplied to EditActivity!");
             finish();
         }
+    }
+
+    public void editComplete() {
+        Intent intent = new Intent();
+
+        if(! mModel.getText1().equals("")) {
+            intent.putExtra("datamodel_parcel", mModel);
+            setResult(Activity.RESULT_OK, intent);
+        } else {
+            setResult(Activity.RESULT_CANCELED, intent);
+        }
+
+        finish();
     }
 }

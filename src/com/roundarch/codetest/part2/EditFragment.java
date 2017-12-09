@@ -50,7 +50,7 @@ public class EditFragment extends Fragment {
         showLoadingDialog();
         refreshModelFromViews();
 
-        // TODO - you need to implement swapText
+        // TODONE - you need to implement swapText
         swapText(model);
 
         // TODO - the BlackBox simulates a slow operation, so you will need to update
@@ -75,7 +75,10 @@ public class EditFragment extends Fragment {
 
     // Modifies the data model to swap the values in text1 and text2
     private void swapText(DataModel model) {
-        // TODO - swap the text1 and text2 fields on the data model
+        // TODONE - swap the text1 and text2 fields on the data model
+        String temp = model.getText1();
+        model.setText1(model.getText2());
+        model.setText2(temp);
     }
 
     public void onClick_save() {
