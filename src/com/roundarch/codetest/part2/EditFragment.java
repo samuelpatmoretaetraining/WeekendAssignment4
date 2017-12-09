@@ -58,9 +58,10 @@ public class EditFragment extends Fragment {
         double newValue = BlackBox.doMagic(model.getText3());
         model.setText3(newValue);
 
-        // TODO - once the model has been updated, you need to find a good way to
-        // TODO - to provide it back to Part2Fragment in the MainActivity
-        getActivity().finish();
+        // TODONE - once the model has been updated, you need to find a good way to
+        // TODONE - to provide it back to Part2Fragment in the MainActivity
+        EditActivity activity = (EditActivity) getActivity();
+        activity.editComplete(mModel);
     }
 
     private void showLoadingDialog() {
@@ -70,7 +71,10 @@ public class EditFragment extends Fragment {
     }
 
     private void refreshModelFromViews() {
-        // TODO - update our model from the views in our layout
+        // TODONE - update our model from the views in our layout
+        mModel.setText1(edit1.getText().toString());
+        mModel.setText2(edit2.getText().toString());
+        mModel.setText3(Double.valueOf(edit3.getText().toString()));
     }
 
     // Modifies the data model to swap the values in text1 and text2
@@ -99,9 +103,9 @@ public class EditFragment extends Fragment {
             getActivity().finish();
         }
 
+        // TODONE - update our views based on the model's state
         edit1.setText(mModel.getText1());
         edit2.setText(mModel.getText2());
         edit3.setText(String.valueOf(mModel.getText3()));
-        // TODO - update our views based on the model's state
     }
 }

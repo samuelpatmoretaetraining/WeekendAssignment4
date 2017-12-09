@@ -33,14 +33,16 @@ public class EditActivity extends FragmentActivity {
         }
     }
 
-    public void editComplete() {
+    public void editComplete(DataModel model) {
         Intent intent = new Intent();
 
-        if(! mModel.getText1().equals("")) {
+        if(! model.getText1().equals("")) {
+            Log.i(TAG, "edit successful. Ending EditActivity.");
             intent.putExtra("datamodel_parcel", mModel);
             setResult(Activity.RESULT_OK, intent);
         } else {
             setResult(Activity.RESULT_CANCELED, intent);
+            Log.i(TAG, "edit failed. Ending EditActivity.");
         }
 
         finish();
