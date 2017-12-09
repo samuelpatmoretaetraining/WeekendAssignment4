@@ -1,6 +1,8 @@
 package com.roundarch.codetest.part3;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -52,10 +54,10 @@ public class Part3Fragment extends Fragment {
         listView.setAdapter(adapter);
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
+
 
         // TODO - when the fragment resumes, it would be a good time to register to receieve broadcasts
         // TODO - from the service.  The broadcast will serve as a way to inform us that data is available
@@ -63,8 +65,11 @@ public class Part3Fragment extends Fragment {
 
         // TODO - this is also a good place to leverage the Service's IBinder interface to tell it you want
         // TODO - to refresh data
-    }
 
+        // Send intent to start IntentService (Part3IntentService)
+        Intent fetchDataIntent = new Intent(this.getContext(), Part3IntentService.class);
+        getActivity().startService(fetchDataIntent);
+    }
 
 
     @Override

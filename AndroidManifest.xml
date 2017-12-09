@@ -26,6 +26,12 @@
         </activity>
         <activity android:name=".part2.EditActivity"></activity>
         <service android:name=".part3.Part3Service"></service>
+        <receiver
+            android:name=".part3.Part3BroadcastReceiver">
+        </receiver>
+        <service
+            android:name=".part3.Part3IntentService">
+        </service>
     </application>
 
 </manifest>
