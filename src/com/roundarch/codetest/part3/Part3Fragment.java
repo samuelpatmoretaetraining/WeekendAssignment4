@@ -13,20 +13,45 @@ import java.util.ArrayList;
 
 public class Part3Fragment extends Fragment {
 
+    ListView listView;
+    ArrayList<ZipCodeModel> listData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_part3, null);
 
         View emptyView = (View) view.findViewById(R.id.empty_textview);
-        ListView listView = (ListView) view.findViewById(R.id.part3_listview);
+        listView = (ListView) view.findViewById(R.id.part3_listview);
+        // Default content
         listView.setEmptyView(emptyView);
-
+        setListData(getDummyValues());
+        refreshListView();
         // TODO - the listview will need to be provided with a source for data
 
         // TODO - (optional) you can set up handling to list item selection if you wish
 
         return view;
     }
+
+    private ArrayList<ZipCodeModel> getDummyValues() {
+        ArrayList<com.roundarch.codetest.part3.ZipCodeModel> dummyList = new ArrayList<>();
+        com.roundarch.codetest.part3.ZipCodeModel item1 = new com.roundarch.codetest.part3.ZipCodeModel(7001, "STANDARD", "NJ", "AVENEL", "MIDDLESEX", +40.582845, -074.275240);
+        com.roundarch.codetest.part3.ZipCodeModel item2 = new com.roundarch.codetest.part3.ZipCodeModel(7002, "STANDARD", "NY", "PLACE", "NOSEX", +38.958471, -075.097438);
+        dummyList.add(item1);
+        dummyList.add(item2);
+        return dummyList;
+    }
+
+    private void setListData(ArrayList<ZipCodeModel> data) {
+        this.listData = data;
+    }
+
+    private void refreshListView() {
+        ZipCodeModel[] zipList = listData.toArray(new ZipCodeModel[listData.size()]);
+        final Part3ArrayAdapter adapter = new Part3ArrayAdapter(this.getContext(), zipList);
+        listView.setAdapter(adapter);
+    }
+
 
     @Override
     public void onResume() {
@@ -40,14 +65,7 @@ public class Part3Fragment extends Fragment {
         // TODO - to refresh data
     }
 
-    private ArrayList<ZipCodeModel> getDummyValues() {
-        ArrayList<ZipCodeModel> dummyList = new ArrayList<>();
-        ZipCodeModel item1 = new ZipCodeModel(07001, "STANDARD", "NJ", "AVENEL", "MIDDLESEX", +40.582845, -074.275240);
-        ZipCodeModel item2 = new ZipCodeModel(07002, "STANDARD", "NY", "PLACE", "NOSEX", +38.958471, -075.097438);
-        dummyList.add(item1);
-        dummyList.add(item2);
-        return dummyList;
-    }
+
 
     @Override
     public void onPause() {

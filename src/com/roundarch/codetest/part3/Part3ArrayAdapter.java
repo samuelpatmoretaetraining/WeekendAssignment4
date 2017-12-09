@@ -1,11 +1,13 @@
 package com.roundarch.codetest.part3;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.roundarch.codetest.R;
@@ -36,7 +38,7 @@ public class Part3ArrayAdapter extends ArrayAdapter<ZipCodeModel> {
 
         ZipCodeModel value = values[position];
 
-        tvZipcode.setText(value.getZipcode());
+        tvZipcode.setText(String.valueOf(value.getZipcode()));
         tvCoordinates.setText(
                 String.valueOf(value.getLatitude() + ", " +
                 String.valueOf(value.getLongitude())));

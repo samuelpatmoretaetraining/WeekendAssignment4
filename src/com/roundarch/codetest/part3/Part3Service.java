@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,7 @@ public class Part3Service extends Service {
     // TODO - before finally returning to the main thread to store our data on the service.
     // TODO - Keep in mind that the service will keep a local copy and will need an interface
     // TODO - to allow clients to access it.
+
 
     // TODO - if you need a simple JSON endpoint, you can obtain the ZIP codes for the state
     // TODO - of Illinois by using this URL:
