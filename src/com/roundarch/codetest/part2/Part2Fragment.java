@@ -47,17 +47,20 @@ public class Part2Fragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(EXTRA_MODEL, mModel);
+        outState.putParcelable(EXTRA_MODEL, mModel);
 
         super.onSaveInstanceState(outState);
     }
 
     public void onClick_edit() {
-        // TODO - package up the data model and provide it to the new EditActivity as it is being created
-        Intent intent = new Intent(this.getActivity(), EditActivity.class);
+        // TODONE - package up the data model and provide it to the new EditActivity as it is being created
+        setModelData(mModel);
 
-        // TODO - this probably isn't the best way to start the EditActivty, try to fix it
-        startActivity(intent);
+        Intent intent = new Intent(this.getActivity(), EditActivity.class);
+        intent.putExtra("datamodel_parcel", mModel);
+
+        // TODONE - this probably isn't the best way to start the EditActivty, try to fix it
+        startActivityForResult(intent, 1);
     }
 
     // TODO - provide a method to obtain the data model when it is returned from the EditActivity
@@ -66,5 +69,11 @@ public class Part2Fragment extends Fragment {
         textView1.setText(mModel.getText1());
         textView2.setText(mModel.getText2());
         textView3.setText(String.valueOf(mModel.getText3()));
+    }
+
+    private void setModelData(DataModel model) {
+        model.setText1(textView1.getText().toString());
+        model.setText2(textView2.getText().toString());
+        model.setText3(Double.valueOf(textView3.getText().toString()));
     }
 }

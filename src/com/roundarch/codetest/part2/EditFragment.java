@@ -79,9 +79,9 @@ public class EditFragment extends Fragment {
         modifyModelOperation(mModel);
     }
 
-    // TODO - use this method from the Activity to set the model and update
-    // TODO - the views in the layout.  You will need to implement the refreshViewsFromModel()
-    // TODO - method as well
+    // TODONE - use this method from the Activity to set the model and update
+    // TODONE - the views in the layout.  You will need to implement the refreshViewsFromModel()
+    // TODONE - method as well
     public void setModel(DataModel model) {
         mModel = model;
         refreshViewsFromModel();
