@@ -38,24 +38,6 @@ public class ZipCodeModel {
     private Double longitude;
 
 
-    public ZipCodeModel() {
-    }
-
-    public ZipCodeModel(int zipcode,
-                        String zipClass,
-                        String state,
-                        String city,
-                        String county,
-                        Double latitude,
-                        Double longitude) {
-        this.zipcode = zipcode;
-        this.zipClass = zipClass;
-        this.state = state;
-        this.city = city;
-        this.county = county;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
     public int getZipcode() {
         return zipcode;

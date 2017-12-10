@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.roundarch.codetest.R;
 
 import java.util.ArrayList;
@@ -33,29 +35,13 @@ public class Part3Fragment extends Fragment {
 
         View emptyView = (View) view.findViewById(R.id.empty_textview);
         listView = (ListView) view.findViewById(R.id.part3_listview);
-        // Default content
+
         listView.setEmptyView(emptyView);
-        setListData(getDummyValues());
-        refreshListView();
-
-        // TODO - the listview will need to be provided with a source for data
-
-        // TODO - (optional) you can set up handling to list item selection if you wish
 
         // create BroadcastReceiver
         dataReceiver = new Part3BroadcastReceiver();
-        dataReceiver.setTarget(this);
 
         return view;
-    }
-
-    private ArrayList<ZipCodeModel> getDummyValues() {
-        ArrayList<com.roundarch.codetest.part3.ZipCodeModel> dummyList = new ArrayList<>();
-        com.roundarch.codetest.part3.ZipCodeModel item1 = new com.roundarch.codetest.part3.ZipCodeModel(7001, "STANDARD", "NJ", "AVENEL", "MIDDLESEX", +40.582845, -074.275240);
-        com.roundarch.codetest.part3.ZipCodeModel item2 = new com.roundarch.codetest.part3.ZipCodeModel(7002, "STANDARD", "NY", "PLACE", "NOSEX", +38.958471, -075.097438);
-        dummyList.add(item1);
-        dummyList.add(item2);
-        return dummyList;
     }
 
     private void setListData(ArrayList<ZipCodeModel> data) {
@@ -72,14 +58,6 @@ public class Part3Fragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-
-        // TODO - when the fragment resumes, it would be a good time to register to receieve broadcasts
-        // TODO - from the service.  The broadcast will serve as a way to inform us that data is available
-        // TODO - for consumption
-
-        // TODO - this is also a good place to leverage the Service's IBinder interface to tell it you want
-        // TODO - to refresh data
-
         // Register BroadcastReceiver
         LocalBroadcastManager.getInstance(this.getActivity())
                 .registerReceiver(dataReceiver, new IntentFilter(DATA_RECEIVED));
@@ -93,19 +71,40 @@ public class Part3Fragment extends Fragment {
 
     }
 
-    public void setDataReceived() {
-        Log.i(TAG, "Data received from BroadcastReceiver");
+    public void setData(ArrayList<ZipCodeDisplayModel> model) {
+        Log.i(TAG, "Data received from BroadcastReceiver, size: " + model.size());
     }
 
     @Override
     public void onPause() {
         super.onPause();
 
-
+        this.getActivity().unregisterReceiver(dataReceiver);
     }
 
-    // TODO - our listView needs a source of data, and here might be a good place to create that
+    public class Part3BroadcastReceiver extends BroadcastReceiver {
 
-    // TODO - we also need a means of responding to the Broadcasts sent by our Service
+        private static final String TAG = "Part3BroadcastReceiver";
+        private Part3Fragment target;
 
+        public Part3BroadcastReceiver() {
+            Log.i(TAG, "Part3BroadcastReceiver created");
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i(TAG, "Intent received by Part3BroadcastReceiver. Action: "+intent.getAction());
+            Toast.makeText(context, "Intent received by Part3BroadcastReceiver. Action: "+intent.getAction(), Toast.LENGTH_SHORT).show();
+
+            if (intent.getAction() == Part3Fragment.DATA_RECEIVED) {
+                ArrayList<ZipCodeDisplayModel> sentData = intent.getParcelableArrayListExtra("data_list");
+                if (sentData != null) {
+                    Log.w(TAG, "List of "+sentData.size()+" items received by Part3Fragment");
+                    setData(sentData);
+                } else {
+                    Log.w(TAG, "No data in intent received by Part3Fragment");
+                }
+            }
+        }
+    }
 }

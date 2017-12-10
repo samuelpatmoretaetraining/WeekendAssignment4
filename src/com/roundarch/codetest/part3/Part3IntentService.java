@@ -6,19 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.roundarch.codetest.network_utils.API_Constants;
-import com.roundarch.codetest.network_utils.SchedulerProvider;
-import com.roundarch.codetest.network_utils.ServerConnection;
 
-import io.reactivex.disposables.CompositeDisposable;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by Samuel on 09/12/2017.
@@ -26,26 +22,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Part3IntentService extends IntentService{
 
-    private CompositeDisposable mCompositeDisposable;
-    private SchedulerProvider mScheduleProvider;
-
     private static final String TAG = "Part3IntentService";
 
-    // Zero argument constructor required for instantiation on Intent
     public Part3IntentService() {
-        // Name thread onHandleIntent will be executed on.
         super(Part3IntentService.class.getName());
-        // Restarts IS, with duplicate Intent if killed before onHandleIntent completes.
-        setIntentRedelivery(true);
-
-        mCompositeDisposable = new CompositeDisposable();
-        mScheduleProvider = new SchedulerProvider();
     }
 
     public Part3IntentService(String name) {
-        // Name thread onHandleIntent will be executed on.
         super(Part3IntentService.class.getName());
-        // Restarts IS, with duplicate Intent if killed before onHandleIntent completes.
         setIntentRedelivery(true);
     }
 
@@ -53,19 +37,49 @@ public class Part3IntentService extends IntentService{
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.i(TAG, "Intent received by Part3IntentService");
 
-        // Send Intent to BroadcastReceiver
-        Intent i = new Intent(Part3Fragment.DATA_RECEIVED);
-        LocalBroadcastManager.getInstance(this.getApplicationContext()).sendBroadcast(i);
+        try {
+            Request request = new Request.Builder()
+                    .url("http://gomashup.com/json.php?fds=geo/usa/zipcode/state/VT")
+                    .header("Accept", "application/json")
+                    .get()
+                    .build();
+            Response response = new OkHttpClient().newCall(request).execute();
+            String body = response.body().string().replace("(", "").replace(")", "");
 
-        mCompositeDisposable.add(
-                ServerConnection.getConnection()
-                        .getZipcodeList1("geo/usa/zipcode/state/NJ")
-                        .observeOn(mScheduleProvider.ui())
-                        .subscribeOn(mScheduleProvider.io())
-                        .subscribe(pointModels -> {
-                            Log.i(TAG, "API_Data received");
-                        }, throwable -> {
-                            throwable.printStackTrace();
-                        }));
+            Log.i(TAG, "Json data length " + body.length() + " chars.");
+
+//            ZipCodeResultModel zipCodeResultModel = new Gson().fromJson(body, ZipCodeResultModel.class);
+            Observable.just(new Gson().fromJson(body, ZipCodeResultModel.class))
+                    .subscribe(result -> {
+                        Log.i(TAG, "Json data entries " + result.getResult().size() + " items.");
+                        formatData(result);
+                    });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private void formatData(ZipCodeResultModel rawData) {
+
+        ArrayList<ZipCodeModel> rawList = new ArrayList<>(rawData.getResult());
+        ArrayList<ZipCodeDisplayModel> returnList = new ArrayList<>();
+        for (ZipCodeModel model : rawList) {
+            returnList.add(new ZipCodeDisplayModel(model));
+        }
+
+        Log.i(TAG, "models converted: "+returnList.size() );
+
+        serviceComplete(returnList);
+    }
+
+    private void serviceComplete(ArrayList<ZipCodeDisplayModel> returnList) {
+        // Send Intent to BroadcastReceiver
+
+        Intent returnIntent = new Intent();
+        returnIntent = new Intent(Part3Fragment.DATA_RECEIVED);
+        returnIntent.putParcelableArrayListExtra("data_list", new ArrayList<>(returnList));
+        LocalBroadcastManager.getInstance(this.getApplicationContext()).sendBroadcast(returnIntent);
+    }
+
 }
