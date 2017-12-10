@@ -12,15 +12,17 @@ import android.widget.TextView;
 
 import com.roundarch.codetest.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by Samuel on 09/12/2017.
  */
 
-public class Part3ArrayAdapter extends ArrayAdapter<ZipCodeModel> {
+public class Part3ArrayAdapter extends ArrayAdapter<ZipCodeDisplayModel> {
     private final Context context;
-    private final ZipCodeModel[] values;
+    private final ArrayList<ZipCodeDisplayModel> values;
 
-    public Part3ArrayAdapter(Context context, ZipCodeModel[] values) {
+    public Part3ArrayAdapter(Context context, ArrayList<ZipCodeDisplayModel> values) {
         super(context, -1, values);
         this.context = context;
         this.values = values;
@@ -36,13 +38,11 @@ public class Part3ArrayAdapter extends ArrayAdapter<ZipCodeModel> {
         TextView tvCoordinates = (TextView) rowView.findViewById(R.id.tvCoordinates);
         TextView tvCountryState = (TextView) rowView.findViewById(R.id.tvCountryState);
 
-        ZipCodeModel value = values[position];
+        ZipCodeDisplayModel value = values.get(position);
 
-        tvZipcode.setText(String.valueOf(value.getZipcode()));
-        tvCoordinates.setText(
-                String.valueOf(value.getLatitude() + ", " +
-                String.valueOf(value.getLongitude())));
-        tvCountryState.setText(value.getCounty() + ", " + value.getState());
+        tvZipcode.setText(value.getZipcode());
+        tvCoordinates.setText(value.getCoordinates());
+        tvCountryState.setText(value.getCountyState());
 
         return rowView;
     }

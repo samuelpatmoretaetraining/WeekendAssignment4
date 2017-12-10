@@ -25,7 +25,7 @@ public class Part3Fragment extends Fragment {
     private static final String TAG = "Part3Fragment";
 
     ListView listView;
-    ArrayList<ZipCodeModel> listData;
+    ArrayList<ZipCodeDisplayModel> listData;
 
     Part3BroadcastReceiver dataReceiver;
 
@@ -44,13 +44,12 @@ public class Part3Fragment extends Fragment {
         return view;
     }
 
-    private void setListData(ArrayList<ZipCodeModel> data) {
+    private void setListData(ArrayList<ZipCodeDisplayModel> data) {
         this.listData = data;
     }
 
     private void refreshListView() {
-        ZipCodeModel[] zipList = listData.toArray(new ZipCodeModel[listData.size()]);
-        final Part3ArrayAdapter adapter = new Part3ArrayAdapter(this.getContext(), zipList);
+        final Part3ArrayAdapter adapter = new Part3ArrayAdapter(this.getContext(), listData);
         listView.setAdapter(adapter);
     }
 
@@ -100,7 +99,8 @@ public class Part3Fragment extends Fragment {
                 ArrayList<ZipCodeDisplayModel> sentData = intent.getParcelableArrayListExtra("data_list");
                 if (sentData != null) {
                     Log.w(TAG, "List of "+sentData.size()+" items received by Part3Fragment");
-                    setData(sentData);
+                    setListData(sentData);
+                    refreshListView();
                 } else {
                     Log.w(TAG, "No data in intent received by Part3Fragment");
                 }

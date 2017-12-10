@@ -7,26 +7,13 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a477b04-7c76-4a42-aa1f-64d46a1fd917" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeDisplayModel.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/API_Constants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/ConnectionService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/RequestInterface.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/SchedulerProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/SchedulerProviderInterface.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/network_utils/ServerConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3BroadcastReceiver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Service.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IsobarAndroidTest/src/com/roundarch/codetest/MainActivity.java" afterPath="$PROJECT_DIR$/IsobarAndroidTest/src/com/roundarch/codetest/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeModel.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeModel.java" />
     </list>
     <ignored path="IsobarAndroidTest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,11 +95,11 @@
       <file leaf-file-name="Part3Fragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="99" column="103" lean-forward="false" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
+            <state relative-caret-position="343">
+              <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
               <folding>
-                <element signature="e#1399#1400#0" expanded="true" />
-                <element signature="e#1435#1436#0" expanded="true" />
+                <element signature="e#1413#1414#0" expanded="true" />
+                <element signature="e#1449#1450#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,8 +158,8 @@
       <file leaf-file-name="Part3ArrayAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+            <state relative-caret-position="395">
+              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1268,7 +1255,6 @@
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part2/Part2Fragment.java" />
         <option value="$PROJECT_DIR$/res/layout/part3_listview_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_part3.xml" />
-        <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/utils/API_Constants.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/utils/ConnectionService.java" />
@@ -1287,6 +1273,7 @@
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeModel.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeDisplayModel.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" />
+        <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" />
       </list>
     </option>
@@ -1989,16 +1976,24 @@
       <option name="project" value="LOCAL" />
       <updated>1512914542082</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Data Received by Fragment">
+      <created>1512941305677</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1512941305678</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="3200" height="1800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.50643086" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45526475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45526475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2078,7 +2073,8 @@
     <MESSAGE value="Refactored display of dummy data to better simulate actual process." />
     <MESSAGE value="Part3IntentService created and launched by Part3Intent.&#10;&#10;Part3BroadcastReceiver created, not tested yet." />
     <MESSAGE value="BroadcastReceiver registered and receiving intent. &#10;&#10;Note: be very careful with String arguments passed to Intents, I spent 20 minutes finding a typo. Use public static string in fragment/activity, or maybe in BroadcastReceiver." />
-    <option name="LAST_COMMIT_MESSAGE" value="BroadcastReceiver registered and receiving intent. &#10;&#10;Note: be very careful with String arguments passed to Intents, I spent 20 minutes finding a typo. Use public static string in fragment/activity, or maybe in BroadcastReceiver." />
+    <MESSAGE value="Data Received by Fragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data Received by Fragment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2469,16 +2465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/ZipCodeDisplayModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -2511,13 +2497,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="99" column="103" lean-forward="false" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
+        <state relative-caret-position="343">
+          <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
           <folding>
-            <element signature="e#1399#1400#0" expanded="true" />
-            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
           </folding>
         </state>
       </provider>
