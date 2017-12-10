@@ -1,10 +1,14 @@
 package com.roundarch.codetest.part3;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +19,13 @@ import java.util.ArrayList;
 
 public class Part3Fragment extends Fragment {
 
+    public static final String DATA_RECEIVED = "com.roundarch.codetest.part3.DATA_RECEIVED";
+    private static final String TAG = "Part3Fragment";
+
     ListView listView;
     ArrayList<ZipCodeModel> listData;
+
+    Part3BroadcastReceiver dataReceiver;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,9 +37,14 @@ public class Part3Fragment extends Fragment {
         listView.setEmptyView(emptyView);
         setListData(getDummyValues());
         refreshListView();
+
         // TODO - the listview will need to be provided with a source for data
 
         // TODO - (optional) you can set up handling to list item selection if you wish
+
+        // create BroadcastReceiver
+        dataReceiver = new Part3BroadcastReceiver();
+        dataReceiver.setTarget(this);
 
         return view;
     }
@@ -66,11 +80,30 @@ public class Part3Fragment extends Fragment {
         // TODO - this is also a good place to leverage the Service's IBinder interface to tell it you want
         // TODO - to refresh data
 
+        // Register BroadcastReceiver
+        LocalBroadcastManager.getInstance(this.getActivity())
+                .registerReceiver(dataReceiver, new IntentFilter(DATA_RECEIVED));
+        this.getActivity().registerReceiver(dataReceiver, new IntentFilter(DATA_RECEIVED));
+
+        // Send intent to start BroadcastReceiver (Part3BroadcastReceiver)
+//        Intent receiverIntent = new Intent(this.getContext(), Part3BroadcastReceiver.class);
+//        getActivity().startService(receiverIntent);
+
+        Intent i = new Intent(Part3Fragment.DATA_RECEIVED);
+        //since it's registered a local, use the LocalBroadcastManager.
+        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(i);
+
+
         // Send intent to start IntentService (Part3IntentService)
         Intent fetchDataIntent = new Intent(this.getContext(), Part3IntentService.class);
         getActivity().startService(fetchDataIntent);
+
+
     }
 
+    public void setDataReceived() {
+        Log.i(TAG, "Data received from BroadcastReceiver");
+    }
 
     @Override
     public void onPause() {

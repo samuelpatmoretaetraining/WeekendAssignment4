@@ -9,7 +9,7 @@ import android.util.Log;
  * Created by Samuel on 09/12/2017.
  */
 
-class Part3IntentService extends IntentService{
+public class Part3IntentService extends IntentService{
 
     private static final String TAG = "Part3IntentService";
 
