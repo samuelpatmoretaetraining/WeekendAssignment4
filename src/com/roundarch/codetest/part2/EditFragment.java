@@ -62,7 +62,7 @@ public class EditFragment extends Fragment {
         // TODONE - this code to prevent it from blocking the main thread
         Observable.just(BlackBox.doMagic(model.getText3()))
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.computation())
                 .subscribe(value -> {
                     model.setText3(value);
                     editComplete();
