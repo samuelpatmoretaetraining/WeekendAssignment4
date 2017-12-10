@@ -3,6 +3,7 @@ package com.roundarch.codetest.part3;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 /**
@@ -31,5 +32,10 @@ public class Part3IntentService extends IntentService{
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.i(TAG, "Intent received by Part3IntentService");
+
+        // Send Intent to BroadcastReceiver
+        Intent i = new Intent(Part3Fragment.DATA_RECEIVED);
+        LocalBroadcastManager.getInstance(this.getApplicationContext()).sendBroadcast(i);
+
     }
 }

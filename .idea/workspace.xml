@@ -12,7 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a477b04-7c76-4a42-aa1f-64d46a1fd917" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3BroadcastReceiver.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3BroadcastReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" afterPath="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" />
     </list>
@@ -59,26 +58,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Part3Fragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Part3Fragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="840">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="e#2257#2258#0" expanded="true" />
                 <element signature="e#2293#2294#0" expanded="true" />
-                <element signature="e#3978#3979#0" expanded="true" />
-                <element signature="e#4044#4045#0" expanded="true" />
+                <element signature="e#3546#3547#0" expanded="true" />
+                <element signature="e#3612#3613#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Part3IntentService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Part3IntentService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="868">
+              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1207,9 +1206,9 @@
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Service.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3ArrayAdapter.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3BroadcastReceiver.java" />
         <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java" />
+        <option value="$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java" />
       </list>
     </option>
   </component>
@@ -1930,17 +1929,23 @@
       <option name="project" value="LOCAL" />
       <updated>1512859468413</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="BroadcastReceiver registered and receiving intent. &#10;&#10;Note: be very careful with String arguments passed to Intents, I spent 20 minutes finding a typo. Use public static string in fragment/activity, or maybe in BroadcastReceiver.">
+      <created>1512914542081</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1512914542082</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3063" height="1832" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.50643086" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7392438" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7392438" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2019,7 +2024,8 @@
     <MESSAGE value="Dummy values and ArrayAdapter created." />
     <MESSAGE value="Refactored display of dummy data to better simulate actual process." />
     <MESSAGE value="Part3IntentService created and launched by Part3Intent.&#10;&#10;Part3BroadcastReceiver created, not tested yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Part3IntentService created and launched by Part3Intent.&#10;&#10;Part3BroadcastReceiver created, not tested yet." />
+    <MESSAGE value="BroadcastReceiver registered and receiving intent. &#10;&#10;Note: be very careful with String arguments passed to Intents, I spent 20 minutes finding a typo. Use public static string in fragment/activity, or maybe in BroadcastReceiver." />
+    <option name="LAST_COMMIT_MESSAGE" value="BroadcastReceiver registered and receiving intent. &#10;&#10;Note: be very careful with String arguments passed to Intents, I spent 20 minutes finding a typo. Use public static string in fragment/activity, or maybe in BroadcastReceiver." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2479,25 +2485,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="840">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#3546#3547#0" expanded="true" />
+            <element signature="e#3612#3613#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3Fragment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/roundarch/codetest/part3/Part3IntentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="868">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
           <folding>
-            <element signature="e#2257#2258#0" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#3978#3979#0" expanded="true" />
-            <element signature="e#4044#4045#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

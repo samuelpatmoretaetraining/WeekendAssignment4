@@ -85,14 +85,6 @@ public class Part3Fragment extends Fragment {
                 .registerReceiver(dataReceiver, new IntentFilter(DATA_RECEIVED));
         this.getActivity().registerReceiver(dataReceiver, new IntentFilter(DATA_RECEIVED));
 
-        // Send intent to start BroadcastReceiver (Part3BroadcastReceiver)
-//        Intent receiverIntent = new Intent(this.getContext(), Part3BroadcastReceiver.class);
-//        getActivity().startService(receiverIntent);
-
-        Intent i = new Intent(Part3Fragment.DATA_RECEIVED);
-        //since it's registered a local, use the LocalBroadcastManager.
-        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(i);
-
 
         // Send intent to start IntentService (Part3IntentService)
         Intent fetchDataIntent = new Intent(this.getContext(), Part3IntentService.class);
