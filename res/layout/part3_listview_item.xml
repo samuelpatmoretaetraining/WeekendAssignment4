@@ -5,7 +5,7 @@
                 android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvZipcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,5 +15,25 @@
         android:textSize="24sp"
         android:textStyle="bold"
         />
+
+    <TextView
+        android:id="@+id/tvCoordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvZipcode"
+        android:layout_alignTop="@+id/tvZipcode"
+        android:layout_marginTop="34dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvCountryState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvCoordinates"
+        android:layout_alignBottom="@+id/tvCoordinates"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="TextView"
+        android:textAlignment="textEnd" />
 
 </RelativeLayout>

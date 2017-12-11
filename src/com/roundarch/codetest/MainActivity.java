@@ -10,13 +10,11 @@ import android.support.v4.view.ViewPager;
 import com.roundarch.codetest.part1.Part1Fragment;
 import com.roundarch.codetest.part2.Part2Fragment;
 import com.roundarch.codetest.part3.Part3Fragment;
-import com.roundarch.codetest.part3.Part3Service;
 
 
 public class MainActivity extends FragmentActivity {
 
     private ViewPager mViewPager;
-    private Part3Service.Part3ServiceBinder zipBinder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,6 @@ public class MainActivity extends FragmentActivity {
     protected void onStart() {
         super.onStart();
 
-        // TODO - for Part3, this might be a good place to bind to our Service
     }
 
     @Override
