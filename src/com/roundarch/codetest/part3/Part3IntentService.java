@@ -48,7 +48,6 @@ public class Part3IntentService extends IntentService{
 
             Log.i(TAG, "Json data length " + body.length() + " chars.");
 
-//            ZipCodeResultModel zipCodeResultModel = new Gson().fromJson(body, ZipCodeResultModel.class);
             Observable.just(new Gson().fromJson(body, ZipCodeResultModel.class))
                     .subscribe(result -> {
                         Log.i(TAG, "Json data entries " + result.getResult().size() + " items.");

@@ -60,7 +60,10 @@ public class EditFragment extends Fragment {
 
         // TODONE - the BlackBox simulates a slow operation, so you will need to update
         // TODONE - this code to prevent it from blocking the main thread
-        Observable.just(BlackBox.doMagic(model.getText3()))
+        Observable.just(0)
+                .map(x -> {
+                    return BlackBox.doMagic(model.getText3());
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.computation())
                 .subscribe(value -> {
